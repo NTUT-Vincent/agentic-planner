@@ -13,10 +13,10 @@ export default function Dashboard() {
   const [selectedPlanType, setSelectedPlanType] = useState<string | null>(null)
 
   const planTypes = [
-    { id: 'study', name: 'Study Plan', icon: '📚', color: 'bg-blue-500' },
-    { id: 'weight_loss', name: 'Weight Loss', icon: '⚖️', color: 'bg-green-500' },
-    { id: 'financial', name: 'Financial Goal', icon: '💰', color: 'bg-yellow-500' },
-    { id: 'life_tasks', name: 'Life Tasks', icon: '✅', color: 'bg-purple-500' },
+    { id: 'study', name: 'Study Plan', icon: '📚', color: 'bg-mabel-500' },
+    { id: 'weight_loss', name: 'Weight Loss', icon: '⚖️', color: 'bg-mabel-400' },
+    { id: 'financial', name: 'Financial Goal', icon: '💰', color: 'bg-mabel-600' },
+    { id: 'life_tasks', name: 'Life Tasks', icon: '✅', color: 'bg-mabel-700' },
   ]
 
   const handleCreatePlan = (planType?: string) => {
@@ -35,7 +35,7 @@ export default function Dashboard() {
 
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen bg-mabel-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-8">
             {/* Header */}
@@ -55,7 +55,7 @@ export default function Dashboard() {
                   onClick={() => setActiveTab('plans')}
                   className={`py-4 px-1 border-b-2 font-medium text-sm ${
                     activeTab === 'plans'
-                      ? 'border-blue-500 text-blue-600'
+                      ? 'border-mabel-500 text-mabel-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -65,7 +65,7 @@ export default function Dashboard() {
                   onClick={() => setActiveTab('tasks')}
                   className={`py-4 px-1 border-b-2 font-medium text-sm ${
                     activeTab === 'tasks'
-                      ? 'border-blue-500 text-blue-600'
+                      ? 'border-mabel-500 text-mabel-600'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   }`}
                 >
@@ -97,7 +97,7 @@ export default function Dashboard() {
                       {planTypes.map((type) => (
                         <div
                           key={type.id}
-                          className="p-4 border-2 border-gray-200 rounded-lg hover:border-blue-300 cursor-pointer transition-colors"
+                          className="p-4 border-2 border-gray-200 rounded-lg hover:border-mabel-300 cursor-pointer transition-colors"
                           onClick={() => handleCreatePlan(type.id)}
                         >
                           <div className="flex items-center space-x-3">
@@ -135,7 +135,7 @@ export default function Dashboard() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="card text-center">
                 <div className="card-body">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-mabel-100 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">📚</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">AI Goal Parsing</h3>
@@ -147,7 +147,7 @@ export default function Dashboard() {
 
               <div className="card text-center">
                 <div className="card-body">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-mabel-200 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">✅</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Smart Task Breakdown</h3>
@@ -159,7 +159,7 @@ export default function Dashboard() {
 
               <div className="card text-center">
                 <div className="card-body">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 bg-mabel-300 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <span className="text-2xl">📊</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Progress Tracking</h3>

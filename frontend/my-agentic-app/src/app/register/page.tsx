@@ -80,7 +80,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-mabel-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900">🎯</h1>
@@ -91,7 +91,7 @@ export default function RegisterPage() {
             Or{' '}
             <Link
               href="/login"
-              className="font-medium text-blue-600 hover:text-blue-500"
+              className="font-medium text-mabel-600 hover:text-mabel-500"
             >
               sign in to your existing account
             </Link>
@@ -192,15 +192,15 @@ export default function RegisterPage() {
                 name="terms"
                 type="checkbox"
                 required
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                className="h-4 w-4 text-mabel-600 focus:ring-mabel-500 border-gray-300 rounded"
               />
               <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
                 I agree to the{' '}
-                <Link href="/terms" className="text-blue-600 hover:text-blue-500">
+                <Link href="/terms" className="text-mabel-600 hover:text-mabel-500">
                   Terms of Service
                 </Link>{' '}
                 and{' '}
-                <Link href="/privacy" className="text-blue-600 hover:text-blue-500">
+                <Link href="/privacy" className="text-mabel-600 hover:text-mabel-500">
                   Privacy Policy
                 </Link>
               </label>

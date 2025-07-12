@@ -18,7 +18,7 @@ interface Plan {
 }
 
 const planTypeConfig = {
-  study: { icon: '📚', color: 'bg-blue-100 text-blue-800', name: 'Study Plan' },
+  study: { icon: '📚', color: 'bg-mabel-100 text-mabel-800', name: 'Study Plan' },
   weight_loss: { icon: '⚖️', color: 'bg-green-100 text-green-800', name: 'Weight Loss' },
   financial: { icon: '💰', color: 'bg-yellow-100 text-yellow-800', name: 'Financial Goal' },
   life_tasks: { icon: '✅', color: 'bg-purple-100 text-purple-800', name: 'Life Tasks' }
@@ -117,7 +117,7 @@ export default function PlansList() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-blue-600">
+                    <div className="text-2xl font-bold text-mabel-600">
                       {Math.round(plan.completion_rate)}%
                     </div>
                     <div className="text-xs text-gray-500">Complete</div>

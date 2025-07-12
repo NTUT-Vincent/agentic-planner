@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { format } from 'date-fns'
 import { apiClient } from '@/lib/api'
 import { useAuth } from '@/contexts/AuthContext'
+import Toast from './Toast'
 
 interface Task {
   id: string
@@ -30,7 +31,7 @@ const statusConfig = {
   },
   in_progress: { 
     label: 'In Progress', 
-    color: 'bg-blue-100 text-blue-800 border-blue-200',
+    color: 'bg-mabel-100 text-mabel-800 border-mabel-200',
     icon: '🔄'
   },
   completed: { 
@@ -54,6 +55,8 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
   const [aiInputVisible, setAiInputVisible] = useState(false)
   const [aiInput, setAiInput] = useState('')
   const [isUpdating, setIsUpdating] = useState(false)
+  const [aiResponseNote, setAiResponseNote] = useState<string | null>(null)
+  const [showAiNote, setShowAiNote] = useState(false)
 
   const progressPercentage = Math.min((task.current_value / task.target_value) * 100, 100)
   const isOverdue = new Date(task.target_date) < new Date() && task.status !== 'completed'
@@ -155,10 +158,9 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
           status: response.data.analysis?.new_status || task.status
         }
         
-        if (response.data.analysis?.feedback) {
-          updates.memo = task.memo 
-            ? `${task.memo}\n\n🤖 AI Analysis: ${response.data.analysis.feedback}`
-            : `🤖 AI Analysis: ${response.data.analysis.feedback}`
+        if (response.data.analysis?.note) {
+          setAiResponseNote(response.data.analysis.note)
+          setShowAiNote(true)
         }
         
         onTaskUpdate(task.id, updates)
@@ -174,7 +176,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
 
   return (
     <div className={`bg-white border rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200 ${
-      isEditing ? 'border-blue-300 ring-2 ring-blue-100' : 'border-gray-200'
+      isEditing ? 'border-mabel-300 ring-2 ring-mabel-100' : 'border-gray-200'
     } ${isUpdating ? 'opacity-75' : ''}`}>
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
@@ -216,8 +218,8 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
             disabled={isUpdating}
             className={`p-2 rounded-lg transition-all duration-200 ${
               isEditing 
-                ? 'text-blue-600 bg-blue-50 hover:bg-blue-100' 
-                : 'text-gray-400 hover:text-blue-600 hover:bg-blue-50'
+                ? 'text-mabel-600 bg-mabel-50 hover:bg-mabel-100' 
+                : 'text-gray-400 hover:text-mabel-600 hover:bg-mabel-50'
             } ${isUpdating ? 'cursor-not-allowed opacity-50' : ''}`}
             title={isEditing ? 'Cancel editing' : 'Edit progress'}
           >
@@ -227,7 +229,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
           <select
             value={task.status}
             onChange={(e) => handleStatusChange(e.target.value as Task['status'])}
-            className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="text-sm border border-gray-300 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-mabel-500"
             disabled={isEditing || isAIUpdating || isUpdating}
           >
             <option value="pending">Pending</option>
@@ -284,7 +286,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
                 max={task.target_value}
                 value={editingProgress}
                 onChange={(e) => setEditingProgress(Number(e.target.value))}
-                className="border border-gray-300 rounded-md px-2 py-1 w-16 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border border-gray-300 rounded-md px-2 py-1 w-16 text-sm focus:outline-none focus:ring-2 focus:ring-mabel-500"
               />
               <span className="text-sm text-gray-500">/ {task.target_value} {task.unit}</span>
             </div>
@@ -295,7 +297,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
           <div 
             className={`h-2.5 rounded-full transition-all duration-300 ${
               task.status === 'completed' ? 'bg-green-500' : 
-              task.status === 'in_progress' ? 'bg-blue-500' : 
+              task.status === 'in_progress' ? 'bg-mabel-500' : 
               'bg-gray-400'
             }`}
             style={{ width: `${isEditing ? Math.min((editingProgress / task.target_value) * 100, 100) : progressPercentage}%` }}
@@ -327,12 +329,23 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
             value={editingMemo}
             onChange={(e) => setEditingMemo(e.target.value)}
             placeholder="Add notes about your progress, challenges, or achievements..."
-            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm min-h-[80px] resize-none"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-mabel-500 text-sm min-h-[80px] resize-none"
             rows={3}
             disabled={isAIUpdating}
           />
         )}
       </div>
+
+      {/* AI Response Toast */}
+      <Toast
+        message={aiResponseNote || ''}
+        type="ai"
+        title="AI Analysis Complete"
+        isVisible={showAiNote && !!aiResponseNote}
+        onClose={() => setShowAiNote(false)}
+        autoHideDuration={5000}
+        position="top"
+      />
 
       {/* Edit Mode Actions */}
       {isEditing && (
@@ -342,7 +355,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
               {editingProgress >= task.target_value ? (
                 <span className="text-green-600 font-medium">✅ Task will be marked as completed</span>
               ) : editingProgress > 0 && task.status === 'pending' ? (
-                <span className="text-blue-600 font-medium">🔄 Task will be marked as in progress</span>
+                <span className="text-mabel-600 font-medium">🔄 Task will be marked as in progress</span>
               ) : (
                 <span>Update your progress and notes</span>
               )}
@@ -351,7 +364,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
               <button
                 onClick={handleProgressSave}
                 disabled={isUpdating}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-4 py-2 bg-mabel-600 text-white rounded-md hover:bg-mabel-700 transition-colors text-sm font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
               >
                 {isUpdating ? (
                   <>

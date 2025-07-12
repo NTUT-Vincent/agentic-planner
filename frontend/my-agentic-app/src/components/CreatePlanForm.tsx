@@ -194,24 +194,24 @@ export default function CreatePlanForm({ onClose, selectedType, onTypeChange }: 
         </div>
 
         {/* Example Card */}
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="bg-mabel-50 border border-mabel-200 rounded-lg p-4">
           <div className="flex items-start justify-between mb-3">
             <div className="flex items-center space-x-2">
               <span className="text-2xl">{planExamples[selectedPlanType].icon}</span>
               <div>
-                <h4 className="font-medium text-blue-900">Example: {planExamples[selectedPlanType].title}</h4>
-                <p className="text-sm text-blue-700">Get started with this example</p>
+                <h4 className="font-medium text-mabel-900">Example: {planExamples[selectedPlanType].title}</h4>
+                <p className="text-sm text-mabel-700">Get started with this example</p>
               </div>
             </div>
             <button
               type="button"
               onClick={handleUseExample}
-              className="text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors"
+              className="text-sm bg-mabel-600 text-white px-3 py-1 rounded hover:bg-mabel-700 transition-colors"
             >
               Use Example
             </button>
           </div>
-          <p className="text-sm text-blue-800 leading-relaxed">
+          <p className="text-sm text-mabel-800 leading-relaxed">
             {planExamples[selectedPlanType].description}
           </p>
         </div>

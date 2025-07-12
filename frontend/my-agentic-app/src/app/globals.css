@@ -1,13 +1,10 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,16 +22,16 @@ body {
 
 /* Custom input field styles */
 .input-field {
-  @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors;
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-mabel-500 focus:border-mabel-500 transition-colors;
 }
 
 /* Button styles */
 .btn-primary {
-  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors;
+  @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-mabel-600 hover:bg-mabel-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mabel-500 transition-colors;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors;
+  @apply inline-flex items-center px-4 py-2 border border-mabel-300 text-sm font-medium rounded-md text-mabel-700 bg-white hover:bg-mabel-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mabel-500 transition-colors;
 }
 
 /* Progress bar styles */
@@ -43,7 +40,7 @@ body {
 }
 
 .progress-fill {
-  @apply h-2 bg-blue-500 rounded-full transition-all duration-300;
+  @apply h-2 bg-mabel-500 rounded-full transition-all duration-300;
 }
 
 /* Form styles */
@@ -56,15 +53,15 @@ body {
 }
 
 .form-input {
-  @apply w-full min-w-0 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors;
+  @apply w-full min-w-0 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-mabel-500 focus:border-mabel-500 transition-colors;
 }
 
 .form-textarea {
-  @apply w-full min-w-0 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none;
+  @apply w-full min-w-0 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-mabel-500 focus:border-mabel-500 transition-colors resize-none;
 }
 
 .form-select {
-  @apply w-full min-w-0 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors;
+  @apply w-full min-w-0 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-mabel-500 focus:border-mabel-500 transition-colors;
 }
 
 /* Card styles */
