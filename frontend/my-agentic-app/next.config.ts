@@ -14,6 +14,9 @@ const nextConfig: NextConfig = {
   experimental: {
     // Server actions are enabled by default in newer versions of Next.js
   },
+  // Suppress hydration warnings from browser extensions
+  reactStrictMode: true,
+  poweredByHeader: false,
 };
 
 export default nextConfig;

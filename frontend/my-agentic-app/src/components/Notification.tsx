@@ -44,11 +44,11 @@ const typeStyles = {
 }
 
 const defaultIcons = {
-  info: 'ℹ️',
-  success: '✅',
-  warning: '⚠️',
-  error: '❌',
-  ai: '🤖'
+  info: 'i',
+  success: '✓',
+  warning: '!',
+  error: '✗',
+  ai: 'AI'
 }
 
 export default function Notification({

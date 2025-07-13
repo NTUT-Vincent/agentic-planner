@@ -83,7 +83,7 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-mabel-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-900">🎯</h1>
+          <h1 className="text-3xl font-bold text-gray-900">◯</h1>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Create your account
           </h2>
@@ -240,7 +240,7 @@ export default function RegisterPage() {
                 className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               >
                 <span className="sr-only">Sign up with Google</span>
-                <span className="text-lg">🔍</span>
+                <span className="text-lg">G</span>
               </button>
 
               <button
@@ -248,7 +248,7 @@ export default function RegisterPage() {
                 className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               >
                 <span className="sr-only">Sign up with GitHub</span>
-                <span className="text-lg">🐙</span>
+                <span className="text-lg">H</span>
               </button>
             </div>
           </div>

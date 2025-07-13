@@ -26,10 +26,10 @@ interface Plan {
 }
 
 const planTypeIcons = {
-  study: '📚',
-  weight_loss: '⚖️',
-  financial: '💰',
-  life_tasks: '✅'
+  study: '📖',
+  weight_loss: '🏃',
+  financial: '$',
+  life_tasks: '✓'
 }
 
 export default function TasksDashboard() {
@@ -214,7 +214,7 @@ export default function TasksDashboard() {
                 <div className="text-2xl font-bold text-gray-900">{stats.total}</div>
                 <div className="text-sm text-gray-500">Total Tasks</div>
               </div>
-              <div className="text-blue-500 text-2xl">📊</div>
+              <div className="text-blue-500 text-2xl">#</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-sm">
@@ -223,7 +223,7 @@ export default function TasksDashboard() {
                 <div className="text-2xl font-bold text-green-600">{stats.completed}</div>
                 <div className="text-sm text-gray-500">Completed</div>
               </div>
-              <div className="text-green-500 text-2xl">✅</div>
+              <div className="text-green-500 text-2xl">✓</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-sm">
@@ -232,7 +232,7 @@ export default function TasksDashboard() {
                 <div className="text-2xl font-bold text-blue-600">{stats.inProgress}</div>
                 <div className="text-sm text-gray-500">In Progress</div>
               </div>
-              <div className="text-blue-500 text-2xl">🔄</div>
+              <div className="text-blue-500 text-2xl">→</div>
             </div>
           </div>
           <div className="bg-white p-4 rounded-lg shadow-sm">
@@ -241,7 +241,7 @@ export default function TasksDashboard() {
                 <div className="text-2xl font-bold text-gray-600">{stats.pending}</div>
                 <div className="text-sm text-gray-500">Pending</div>
               </div>
-              <div className="text-gray-500 text-2xl">📅</div>
+              <div className="text-gray-500 text-2xl">○</div>
             </div>
           </div>
         </div>
@@ -273,7 +273,7 @@ export default function TasksDashboard() {
           <div className="p-6">
             {filteredTasks.length === 0 ? (
               <div className="text-center py-8">
-                <div className="text-4xl mb-4">📋</div>
+                <div className="text-4xl mb-4">—</div>
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
                   No {filter === 'all' ? '' : filter} tasks found
                 </h3>

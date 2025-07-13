@@ -67,7 +67,7 @@ export default function TasksList() {
         
         {tasks.length === 0 ? (
           <div className="text-center py-8">
-            <span className="text-4xl mb-4 block">✅</span>
+            <span className="text-4xl mb-4 block">✓</span>
             <p className="text-gray-500">No tasks yet. Create a plan to get started!</p>
           </div>
         ) : (

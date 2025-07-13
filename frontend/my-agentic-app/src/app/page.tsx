@@ -13,10 +13,10 @@ export default function Dashboard() {
   const [selectedPlanType, setSelectedPlanType] = useState<string | null>(null)
 
   const planTypes = [
-    { id: 'study', name: 'Study Plan', icon: '📚', color: 'bg-mabel-500' },
-    { id: 'weight_loss', name: 'Weight Loss', icon: '⚖️', color: 'bg-mabel-400' },
-    { id: 'financial', name: 'Financial Goal', icon: '💰', color: 'bg-mabel-600' },
-    { id: 'life_tasks', name: 'Life Tasks', icon: '✅', color: 'bg-mabel-700' },
+    { id: 'study', name: 'Study Plan', icon: '📖', color: 'bg-mabel-500' },
+    { id: 'weight_loss', name: 'Weight Loss', icon: '⚖', color: 'bg-mabel-400' },
+    { id: 'financial', name: 'Financial Goal', icon: '$', color: 'bg-mabel-600' },
+    { id: 'life_tasks', name: 'Life Tasks', icon: '✓', color: 'bg-mabel-700' },
   ]
 
   const handleCreatePlan = (planType?: string) => {
@@ -85,7 +85,7 @@ export default function Dashboard() {
                         onClick={() => handleCreatePlan()}
                         className="btn-primary"
                       >
-                        <span className="mr-2">➕</span>
+                        <span className="mr-2">+</span>
                         New Plan
                       </button>
                     </div>
@@ -136,7 +136,7 @@ export default function Dashboard() {
               <div className="card text-center">
                 <div className="card-body">
                   <div className="w-12 h-12 bg-mabel-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">📚</span>
+                    <span className="text-2xl">AI</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">AI Goal Parsing</h3>
                   <p className="text-gray-600">
@@ -148,7 +148,7 @@ export default function Dashboard() {
               <div className="card text-center">
                 <div className="card-body">
                   <div className="w-12 h-12 bg-mabel-200 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">✅</span>
+                    <span className="text-2xl">✓</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Smart Task Breakdown</h3>
                   <p className="text-gray-600">
@@ -160,7 +160,7 @@ export default function Dashboard() {
               <div className="card text-center">
                 <div className="card-body">
                   <div className="w-12 h-12 bg-mabel-300 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl">📊</span>
+                    <span className="text-2xl">△</span>
                   </div>
                   <h3 className="text-lg font-semibold mb-2">Progress Tracking</h3>
                   <p className="text-gray-600">

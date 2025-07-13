@@ -39,22 +39,22 @@ const planExamples = {
   study: {
     title: 'IELTS Preparation',
     description: 'Comprehensive study plan to achieve IELTS band 7.5. Focus on reading comprehension, writing skills, listening practice, and speaking fluency. Daily practice sessions with mock tests and vocabulary building.',
-    icon: '📚'
+    icon: '📖'
   },
   weight_loss: {
     title: 'Weight Loss Journey',
     description: 'Lose 15 pounds in 3 months through balanced diet and regular exercise. Include cardio workouts, strength training, meal planning, and tracking daily calorie intake.',
-    icon: '⚖️'
+    icon: '🏃'
   },
   financial: {
     title: 'Emergency Fund Goal',
     description: 'Build an emergency fund of $10,000 within 12 months. Create a monthly savings plan, reduce unnecessary expenses, and explore additional income sources.',
-    icon: '💰'
+    icon: '$'
   },
   life_tasks: {
     title: 'Home Organization Project',
     description: 'Organize and declutter entire home room by room. Sort belongings, donate unused items, create storage systems, and maintain organized spaces.',
-    icon: '✅'
+    icon: '✓'
   }
 }
 
@@ -167,10 +167,10 @@ export default function CreatePlanForm({ onClose, selectedType, onTypeChange }: 
               className="input-field"
               onChange={handlePlanTypeChange}
             >
-              <option value="study">📚 Study Plan</option>
-              <option value="weight_loss">⚖️ Weight Loss</option>
-              <option value="financial">💰 Financial Goal</option>
-              <option value="life_tasks">✅ Life Tasks</option>
+              <option value="study">📖 Study Plan</option>
+              <option value="weight_loss">🏃 Weight Loss</option>
+              <option value="financial">$ Financial Goal</option>
+              <option value="life_tasks">✓ Life Tasks</option>
             </select>
             {errors.plan_type && (
               <p className="text-red-500 text-sm mt-1">{errors.plan_type.message}</p>

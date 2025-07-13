@@ -29,7 +29,7 @@ export default function Navigation() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-mabel-600">🎯</span>
+              <span className="text-2xl font-bold text-mabel-600">◯</span>
               <span className="ml-2 text-xl font-semibold text-gray-900">
                 Agentic Planner
               </span>

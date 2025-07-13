@@ -27,22 +27,22 @@ const statusConfig = {
   pending: { 
     label: 'Pending', 
     color: 'bg-gray-100 text-gray-800 border-gray-200',
-    icon: '⏳'
+    icon: '○'
   },
   in_progress: { 
     label: 'In Progress', 
     color: 'bg-mabel-100 text-mabel-800 border-mabel-200',
-    icon: '🔄'
+    icon: '→'
   },
   completed: { 
     label: 'Completed', 
     color: 'bg-green-100 text-green-800 border-green-200',
-    icon: '✅'
+    icon: '✓'
   },
   skipped: { 
     label: 'Skipped', 
     color: 'bg-yellow-100 text-yellow-800 border-yellow-200',
-    icon: '⏭️'
+    icon: '—'
   }
 }
 
@@ -191,7 +191,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
             </span>
             
             <span className={`text-sm ${isOverdue ? 'text-red-600 font-medium' : 'text-gray-500'}`}>
-              {isOverdue && '⚠️ '}
+              {isOverdue && '! '}
               Due: {format(new Date(task.target_date), 'MMM dd, yyyy')}
             </span>
           </div>
@@ -210,7 +210,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
             }`}
             title="AI Progress Update"
           >
-            {isAIUpdating ? <span className="animate-spin">🔄</span> : '🤖'}
+            {isAIUpdating ? <span className="animate-spin">⟳</span> : 'AI'}
           </button>
           
           <button
@@ -223,7 +223,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
             } ${isUpdating ? 'cursor-not-allowed opacity-50' : ''}`}
             title={isEditing ? 'Cancel editing' : 'Edit progress'}
           >
-            {isEditing ? '✕' : '✏️'}
+            {isEditing ? '×' : '✎'}
           </button>
           
           <select
@@ -260,7 +260,7 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
               {isAIUpdating ? (
                 <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full" />
               ) : (
-                '📤'
+                '→'
               )}
             </button>
           </div>
@@ -353,9 +353,9 @@ export default function TaskCard({ task, onTaskUpdate }: TaskCardProps) {
           <div className="flex justify-between items-center">
             <div className="text-sm text-gray-500">
               {editingProgress >= task.target_value ? (
-                <span className="text-green-600 font-medium">✅ Task will be marked as completed</span>
+                <span className="text-green-600 font-medium">✓ Task will be marked as completed</span>
               ) : editingProgress > 0 && task.status === 'pending' ? (
-                <span className="text-mabel-600 font-medium">🔄 Task will be marked as in progress</span>
+                <span className="text-mabel-600 font-medium">→ Task will be marked as in progress</span>
               ) : (
                 <span>Update your progress and notes</span>
               )}

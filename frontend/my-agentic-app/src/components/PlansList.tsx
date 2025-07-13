@@ -18,10 +18,10 @@ interface Plan {
 }
 
 const planTypeConfig = {
-  study: { icon: '📚', color: 'bg-mabel-100 text-mabel-800', name: 'Study Plan' },
-  weight_loss: { icon: '⚖️', color: 'bg-green-100 text-green-800', name: 'Weight Loss' },
-  financial: { icon: '💰', color: 'bg-yellow-100 text-yellow-800', name: 'Financial Goal' },
-  life_tasks: { icon: '✅', color: 'bg-purple-100 text-purple-800', name: 'Life Tasks' }
+  study: { icon: '📖', color: 'bg-mabel-100 text-mabel-800', name: 'Study Plan' },
+  weight_loss: { icon: '⚖', color: 'bg-green-100 text-green-800', name: 'Weight Loss' },
+  financial: { icon: '$', color: 'bg-yellow-100 text-yellow-800', name: 'Financial Goal' },
+  life_tasks: { icon: '✓', color: 'bg-purple-100 text-purple-800', name: 'Life Tasks' }
 }
 
 export default function PlansList() {
@@ -96,7 +96,7 @@ export default function PlansList() {
       
       {plans.length === 0 ? (
         <div className="text-center py-8">
-          <span className="text-4xl mb-4 block">📋</span>
+          <span className="text-4xl mb-4 block">□</span>
           <p className="text-gray-500">No plans yet. Create your first plan to get started!</p>
         </div>
       ) : (
@@ -127,8 +127,8 @@ export default function PlansList() {
                 <p className="text-sm text-gray-600 mb-3">{plan.description}</p>
                 
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
-                  <span>📅 {new Date(plan.start_date).toLocaleDateString()} - {new Date(plan.end_date).toLocaleDateString()}</span>
-                  <span>📝 {plan.tasks_count} tasks</span>
+                  <span>— {new Date(plan.start_date).toLocaleDateString()} - {new Date(plan.end_date).toLocaleDateString()}</span>
+                  <span>• {plan.tasks_count} tasks</span>
                 </div>
                 
                 <div className="progress-bar mb-3">
