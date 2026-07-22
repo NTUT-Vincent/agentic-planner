@@ -1,0 +1,21 @@
+name: agent-runtime-ci
+on:
+  push:
+    branches: ["agent/agent-runtime-platform"]
+  pull_request:
+    paths: ["agent-runtime-platform/**"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: agent-runtime-platform
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --extra dev
+      - run: uv run ruff check .
+      - run: uv run pytest -q
